@@ -53,7 +53,8 @@ def jpg_rename_resize(jpg_file, output_dir, output_file_prefix,cover_or_back):
 # 打開介面，選擇封面圖檔
 root = tk.Tk()
 root.withdraw()
-jpg_file_cover = filedialog.askopenfilename(title="選擇封面圖檔", filetypes=(("JPG圖檔", "*.jpg"), ("All Files", "*.*")))
+jpg_file_cover = filedialog.askopenfilename(title="選擇封面圖檔", filetypes=(("JPG圖檔", "*.jpg"), ("All Files", "*.*")),parent=root,
+                                    initialdir='~/')
 
 if not jpg_file_cover:
     print("沒有選擇封面圖檔，程式取消")
@@ -62,7 +63,8 @@ if not jpg_file_cover:
 # 打開介面，選擇封底圖檔
 root = tk.Tk()
 root.withdraw()
-jpg_file_bottom = filedialog.askopenfilename(title="選擇封底圖檔", filetypes=(("JPG圖檔", "*.jpg"), ("All Files", "*.*")))
+jpg_file_bottom = filedialog.askopenfilename(title="選擇封底圖檔", filetypes=(("JPG圖檔", "*.jpg"), ("All Files", "*.*")),parent=root,
+                                    initialdir='~/')
 
 if not jpg_file_bottom:
     print("沒有選擇封底圖檔，程式取消")
@@ -71,14 +73,15 @@ if not jpg_file_bottom:
 # 打開介面，選擇 PDF 檔案
 root = tk.Tk()
 root.withdraw()
-pdf_file = filedialog.askopenfilename(title="選擇PDF檔案", filetypes=(("PDF Files", "*.pdf"), ("All Files", "*.*")))
+pdf_file = filedialog.askopenfilename(title="選擇PDF檔案", filetypes=(("PDF Files", "*.pdf"), ("All Files", "*.*")),parent=root,
+                                    initialdir='~/')
 if not pdf_file:
     print("PDF file selection cancelled.")
     sys.exit()
 
 # Create a GUI window to select the output directory
 output_dir = filedialog.askdirectory(title="選擇儲存路徑",parent=root,
-                                    initialdir='~/')
+                                    initialdir='~/',message="請選擇儲存路徑")
 
 if not output_dir:
     print("Output directory selection cancelled.")
@@ -95,8 +98,13 @@ os.makedirs(subfolder, exist_ok=True)
 pages = list(map(int, input("請輸入想要轉換的頁碼（請以半型逗號分隔）: ").strip().split(",")))
 
 # 選擇目錄
-directory = int(input("請輸入目錄頁碼:"))
-print(directory)
+directory = input("請輸入目錄頁碼:")
+
+if directory == "" :
+    print("沒有輸入頁碼")
+else:
+    directory = int(directory)
+
 
 # Convert the selected PDF to JPG and save in the specified directory
 pdf_to_jpg(pdf_file, subfolder, output_file_prefix, pages,directory)
