@@ -2,7 +2,8 @@
 
 這個程式是以 Python 寫成，目的是方便使用者產出博客來建檔用的相關圖片以及命名名稱。
 
-影片示範：https://www.dropbox.com/s/sk09yf6ma1l1dgw/%E8%9E%A2%E5%B9%95%E9%8C%84%E5%BD%B1%202023-02-01%20%E4%B8%8A%E5%8D%8810.30.52.mov?dl=0
+影片示範：https://www.dropbox.com/s/sk09yf6ma1l1dgw/%E8%9E%A2%E5%B9%95%E9%8C%84%E5%BD%B1%202023-02-01%20%E4%B8%8A%E5%8D%8810.30.52.mov?dl=0。
+
 下載連結（限 mac）：https://drive.google.com/drive/u/0/folders/1EvN8dpdjwILXxgSErPuTXXFyASeyzYi1
 
 產出規格：
